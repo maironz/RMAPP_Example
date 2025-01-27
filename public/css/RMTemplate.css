@@ -1,0 +1,215 @@
+/* 01_tipi_contratti.css */
+/* Nascondi il checkbox di base */
+input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 34px; /* Ridotta la larghezza */
+  height: 20px;
+  margin-right: 10px; /* Spazio tra gli switch */
+  margin-bottom: 10px; /* Spazio verticale tra gli switch */
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+.permesso-group {
+  border: 1px solid #ccc; /* Colore del bordo */
+  padding: 10px;          /* Spazio interno */
+  margin: 5px 0;          /* Margine tra i gruppi */
+  border-radius: 5px;     /* Bordo arrotondato */
+  display: inline-block;  /* Per raggruppare etichetta e switch */
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px); /* Aggiornata per la nuova larghezza */
+}
+
+/* Aggiungi un layout flessibile per gli switch */
+#permessi {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#permessi label {
+  margin-right: 10px;
+}
+/*CSS per popup */
+
+/* Overlay scuro dietro il popup */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Sfondo scuro semi-trasparente */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Posizionare sopra gli altri elementi */
+}
+
+/* Contenuto del popup */
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+  z-index: 1000; /* Assicurarsi che sia sopra l'overlay */
+}
+
+/* Pulsante per chiudere il popup */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.buttsweetalert,.swal2-confirm,.swal2-cancel,.swal2-deny,button {
+  padding: 10px 20px; /* Aggiunge del padding extra per un pulsante più grande */
+  background: radial-gradient(circle, rgb(195, 97, 97) 0%, rgb(147, 59, 73) 100%) !important; /* Gradiente radiale */
+  color: white; /* Colore del testo */
+  border: none; /* Rimuove il bordo */
+  border-radius: 10px; /* Arrotonda gli angoli */
+  cursor: pointer; /* Mostra il cursore di selezione */
+  font-size: 16px; /* Dimensione del testo */
+  transition: background 0.3s ease, box-shadow 0.3s ease; /* Aggiunge un effetto di transizione */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Ombra leggera */
+}
+
+.buttsweetalert:hover,.swal2-confirm:hover,.swal2-cancel:hover,.swal2-deny:hover,button:hover {
+  background-image: none !important;
+  background: radial-gradient(circle, rgb(147, 59, 73) 0%, rgb(195, 97, 97) 100%) !important; /* Gradiente radiale al passaggio del mouse */
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); /* Ombra più scura al passaggio del mouse */
+}
+/* Stile base della select */
+.select-custom {
+  padding: 10px 5px 10px 10px !important; /* Padding per il testo */
+  padding-right: 25px !important; /* Spazio per l'icona */
+  border: 1px solid #ccc !important;
+  border-radius: 10px !important; /* Arrotonda gli angoli */
+  background-color: #fff;
+  color: #333 !important;
+  font-size: 16px !important;
+  appearance: none !important; /* Rimuove lo stile predefinito del browser */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease !important; /* Transizione */
+  position: relative !important;
+  width: 100% !important; /* Assicura che la select occupi l'intera larghezza disponibile */
+}
+
+/* Aggiunta dell'icona FontAwesome come elemento posizionato */
+.select-container {
+  position: relative !important;
+  display: inline-block !important;
+  width: 100% !important; /* Assicura che l'icona si posizioni correttamente rispetto alla select */
+}
+
+.select-container::after {
+  content: "\f107"; /* Codice Unicode per la freccia giù di FontAwesome */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900 !important; /* Per versioni più vecchie di FontAwesome, usa "FontAwesome" */
+  position: absolute !important;
+  right: 10px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  pointer-events: none !important;
+  font-size: 16px !important;
+}
+
+/* Cambia l'icona su focus (quando la select è aperta) */
+.select-custom:focus + .select-container::after {
+  content: "\f106"; /* Codice Unicode per la freccia su di FontAwesome */
+}
+
+/* Hover per schiarire il colore */
+.select-custom:hover {
+  background-color: #f1f1f1 !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Stile dell'etichetta per assicurare che stia sopra la select */
+.select-label {
+  display: block !important;
+  margin-bottom: 5px !important; /* Aggiunge un piccolo margine sotto l'etichetta */
+  font-weight: bold !important;
+  font-size: 14px !important;
+}
+.table thead th {
+  white-space: pre-wrap;
+  border-bottom-width: 1px;
+}
+/* Stile del pulsante di scorrimento */
+.scroll-button {
+  position: fixed; /* Posiziona il pulsante rispetto alla finestra */
+  right: 20px;     /* Distanza dal lato destro */
+  background-color: #C01FFA !important; /* Colore di sfondo */
+  background: #C01FFA !important; /* Colore di sfondo */
+  color: white;    /* Colore del testo */
+  border: none;    /* Nessun bordo */
+  border-radius: 50%; /* Forma circolare */
+  width: 50px;     /* Larghezza del pulsante */
+  height: 50px;    /* Altezza del pulsante */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;   /* Assicurati che il pulsante sia sopra tutto */
+  animation: fade-in-out 1s infinite; /* Effetto lampeggiante */
+}
+
+/* Stile dell'icona */
+.scroll-button i {
+  font-size: 30px; /* Dimensione dell'icona */
+}
+
+/* Animazione lampeggiante */
+@keyframes fade-in-out {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
